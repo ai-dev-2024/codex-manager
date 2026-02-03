@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1117;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#161b22;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1a2e;stop-opacity:1" />
+    㰯linearGradient>
+    
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0099cc;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="glowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#0099cc;stop-opacity:0.05" />
+    </linearGradient>
+    
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1280" height="640" fill="url(#bgGradient)"/>
+  
+  <!-- Decorative grid -->
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#00d4ff" stroke-width="0.5" opacity="0.1"/>
+  </pattern>
+  <rect width="1280" height="640" fill="url(#grid)"/>
+  
+  <!-- Glow effect behind logo -->
+  <ellipse cx="220" cy="320" rx="150" ry="150" fill="url(#glowGradient)"/>
+  
+  <!-- Logo icon -->
+  <g transform="translate(100, 200) scale(0.8)">
+    <!-- Outer ring -->
+    <circle cx="150" cy="150" r="140" fill="none" stroke="url(#accentGradient)" stroke-width="4" filter="url(#glow)"/>
+    
+    <!-- Inner hexagon -->
+    <polygon points="150,30 255,90 255,210 150,270 45,210 45,90" 
+             fill="none" stroke="url(#accentGradient)" stroke-width="3"/>
+    
+    <!-- Central C shape -->
+    <path d="M 150 70 
+             A 80 80 0 1 0 150 230
+             L 150 195
+             A 45 45 0 1 1 150 105
+             Z" 
+          fill="url(#accentGradient)" filter="url(#glow)"/>
+    
+    <!-- Circuit lines -->
+    <path d="M 45 90 L 10 70" stroke="url(#accentGradient)" stroke-width="2" fill="none"/>
+    <circle cx="10" cy="70" r="5" fill="url(#accentGradient)"/>
+    
+    <path d="M 255 90 L 290 70" stroke="url(#accentGradient)" stroke-width="2" fill="none"/>
+    <circle cx="290" cy="70" r="5" fill="url(#accentGradient)"/>
+    
+    <path d="M 45 210 L 10 230" stroke="url(#accentGradient)" stroke-width="2" fill="none"/>
+    <circle cx="10" cy="230" r="5" fill="url(#accentGradient)"/>
+    
+    <path d="M 255 210 L 290 230" stroke="url(#accentGradient)" stroke-width="2" fill="none"/>
+    <circle cx="290" cy="230" r="5" fill="url(#accentGradient)"/>
+  </g>
+  
+  <!-- Text -->
+  <text x="420" y="280" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" 
+        font-size="80" font-weight="700" fill="#ffffff">Codex</text>
+  
+  <text x="420" y="350" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" 
+        font-size="80" font-weight="700" fill="url(#accentGradient)" filter="url(#glow)">Manager</text>
+  
+  <!-- Tagline -->
+  <text x="420" y="420" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" 
+        font-size="28" font-weight="400" fill="#8b949e">Professional OpenAI Account Management &amp; Routing</text>
+  
+  <!-- Version badge -->
+  <rect x="420" y="450" width="90" height="32" rx="6" fill="none" stroke="url(#accentGradient)" stroke-width="1"/>
+  <text x="465" y="472" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" 
+        font-size="16" font-weight="600" fill="url(#accentGradient)" text-anchor="middle">v0.3.0</text>
+  
+  <!-- Feature pills -->
+  <g transform="translate(420, 510)">
+    <rect x="0" y="0" width="140" height="28" rx="14" fill="#21262d"/>
+    <text x="70" y="19" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" 
+          font-size="12" font-weight="500" fill="#00d4ff" text-anchor="middle">Multi-Account</text>
+    
+    <rect x="155" y="0" width="120" height="28" rx="14" fill="#21262d"/>
+    <text x="215" y="19" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" 
+          font-size="12" font-weight="500" fill="#00d4ff" text-anchor="middle">Encrypted</text>
+    
+    <rect x="290" y="0" width="130" height="28" rx="14" fill="#21262d"/>
+    <text x="355" y="19" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" 
+          font-size="12" font-weight="500" fill="#00d4ff" text-anchor="middle">Smart Routing</text>
+  </g>
+</svg>
