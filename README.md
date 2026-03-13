@@ -13,6 +13,7 @@
 [![React](https://img.shields.io/badge/React-19-61DAFB.svg?style=flat-square&logo=react)](https://react.dev)
 [![Rust](https://img.shields.io/badge/Rust-000000.svg?style=flat-square&logo=rust)](https://rust-lang.org)
 [![ZAI Community](https://img.shields.io/badge/Part%20of-ZAI%20Start--up%20Community-8b5cf6?style=flat-square)](https://startup.z.ai/)
+[![Ko-fi](https://img.shields.io/badge/☕_Support_on_Ko--fi-FF5E5B?style=flat-square&logo=ko-fi)](https://ko-fi.com/ai_dev_2024)
 
 **[Download](https://github.com/ai-dev-2024/codex-manager/releases)** • **[Documentation](docs/)** • **[Support](https://ko-fi.com/ai_dev_2024)** • **[Issues](https://github.com/ai-dev-2024/codex-manager/issues)**
 
