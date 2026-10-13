@@ -6,7 +6,7 @@
 
 **Version**: 0.3.0  
 **License**: MIT  
-**Repository**: https://github.com/ai-dev-2024/codex-manager  
+**Repository**: https://github.com/muhib-karim/codex-manager  
 **Support**: https://ko-fi.com/ai_dev_2024
 
 ---
@@ -170,7 +170,7 @@ npm run tauri build           # Build production
 git init
 git add .
 git commit -m "Release v0.3.0"
-git remote add origin https://github.com/ai-dev-2024/codex-manager.git
+git remote add origin https://github.com/muhib-karim/codex-manager.git
 git push -u origin main
 ```
 
@@ -510,8 +510,8 @@ curl http://localhost:8080/v1/chat/completions \
 - [shadcn/ui](https://ui.shadcn.com)
 
 ### Support
-- Issues: https://github.com/ai-dev-2024/codex-manager/issues
-- Discussions: https://github.com/ai-dev-2024/codex-manager/discussions
+- Issues: https://github.com/muhib-karim/codex-manager/issues
+- Discussions: https://github.com/muhib-karim/codex-manager/discussions
 - Ko-fi: https://ko-fi.com/ai_dev_2024
 
 ---

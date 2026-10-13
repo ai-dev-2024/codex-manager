@@ -49,7 +49,7 @@ export const useConfigStore = create<ConfigState>((set, get) => ({
     },
 
     updateTheme: (theme) => {
-        const { config, saveConfig } = get();
+        const { config } = get();
         const newConfig = { ...config, theme };
         set({ config: newConfig });
         localStorage.setItem('codex-manager-config', JSON.stringify(newConfig));

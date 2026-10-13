@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { createPortal } from 'react-dom';
 import { X, Copy, Check } from 'lucide-react';
 import { OpenAIAccount } from '../../types/account';
 import { formatDate, maskApiKey, formatNumber } from '../../utils/format';

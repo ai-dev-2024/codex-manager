@@ -1,82 +1,106 @@
 import { create } from 'zustand';
+import type { OpenAIAccount } from '../types/account';
 
-interface Account {
-  id: string;
-  name: string;
-  apiKey: string;
-  isActive: boolean;
-  createdAt: string;
-}
+// NOTE: this store currently keeps accounts in memory only. The Rust backend
+// commands (list_accounts, add_account, ...) are not wired up to the UI yet.
+
+export type NewAccount = Omit<OpenAIAccount, 'id' | 'createdAt'>;
 
 interface AccountState {
-  accounts: Account[];
-  currentAccount: Account | null;
-  isLoading: boolean;
+  accounts: OpenAIAccount[];
+  currentAccount: OpenAIAccount | null;
+  loading: boolean;
   error: string | null;
   fetchAccounts: () => Promise<void>;
   fetchCurrentAccount: () => Promise<void>;
-  addAccount: (account: Omit<Account, 'id' | 'createdAt'>) => Promise<void>;
+  addAccount: (account: NewAccount) => Promise<OpenAIAccount>;
   deleteAccount: (id: string) => Promise<void>;
+  deleteAccounts: (ids: string[]) => Promise<void>;
   switchAccount: (id: string) => Promise<void>;
+  toggleAccountStatus: (id: string, enable: boolean, reason?: string) => Promise<void>;
+  refreshQuota: (id: string) => Promise<void>;
+  refreshAllQuotas: () => Promise<void>;
+  exportAccounts: () => Promise<string>;
 }
+
+const nowSeconds = () => Math.floor(Date.now() / 1000);
+
+const newId = () =>
+  typeof crypto !== 'undefined' && 'randomUUID' in crypto
+    ? crypto.randomUUID()
+    : `${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}`;
 
 export const useAccountStore = create<AccountState>((set, get) => ({
   accounts: [],
   currentAccount: null,
-  isLoading: false,
+  loading: false,
   error: null,
 
   fetchAccounts: async () => {
-    set({ isLoading: true, error: null });
-    try {
-      // TODO: Implement Tauri invoke
-      // const accounts = await invoke<Account[]>('list_accounts');
-      // set({ accounts, isLoading: false });
-      set({ isLoading: false });
-    } catch (error) {
-      set({ error: String(error), isLoading: false });
-    }
+    set({ loading: false, error: null });
   },
 
   fetchCurrentAccount: async () => {
-    try {
-      // TODO: Implement Tauri invoke
-      // const account = await invoke<Account | null>('get_current_account');
-      // set({ currentAccount: account });
-    } catch (error) {
-      console.error('Failed to fetch current account:', error);
+    const { accounts, currentAccount } = get();
+    if (currentAccount && !accounts.some(a => a.id === currentAccount.id)) {
+      set({ currentAccount: null });
     }
   },
 
-  addAccount: async (account) => {
-    set({ isLoading: true, error: null });
-    try {
-      // TODO: Implement Tauri invoke
-      // await invoke('add_account', { account });
-      await get().fetchAccounts();
-    } catch (error) {
-      set({ error: String(error), isLoading: false });
-    }
+  addAccount: async (input) => {
+    const account: OpenAIAccount = { ...input, id: newId(), createdAt: nowSeconds() };
+    set(state => {
+      const accounts = [...state.accounts, account];
+      return { accounts, currentAccount: state.currentAccount ?? account };
+    });
+    return account;
   },
 
   deleteAccount: async (id) => {
-    set({ isLoading: true, error: null });
-    try {
-      // TODO: Implement Tauri invoke
-      // await invoke('delete_account', { id });
-      await get().fetchAccounts();
-    } catch (error) {
-      set({ error: String(error), isLoading: false });
-    }
+    await get().deleteAccounts([id]);
+  },
+
+  deleteAccounts: async (ids) => {
+    const remove = new Set(ids);
+    set(state => ({
+      accounts: state.accounts.filter(a => !remove.has(a.id)),
+      currentAccount:
+        state.currentAccount && remove.has(state.currentAccount.id) ? null : state.currentAccount,
+    }));
   },
 
   switchAccount: async (id) => {
-    try {
-      // TODO: Implement Tauri invoke
-      // await invoke('switch_account', { id });
-      await get().fetchCurrentAccount();
-    } catch (error) {
-      console.error('Failed to switch account:', error);
-    }
+    const target = get().accounts.find(a => a.id === id);
+    if (!target) throw new Error(`Account ${id} not found`);
+    if (target.disabled) throw new Error(`Account ${target.name} is disabled`);
+    const lastUsed = nowSeconds();
+    set(state => ({
+      accounts: state.accounts.map(a =>
+        a.id === id ? { ...a, isActive: true, lastUsed } : { ...a, isActive: false }
+      ),
+      currentAccount: { ...target, isActive: true, lastUsed },
+    }));
   },
+
+  toggleAccountStatus: async (id, enable, reason) => {
+    if (!get().accounts.some(a => a.id === id)) throw new Error(`Account ${id} not found`);
+    set(state => {
+      const accounts = state.accounts.map(a =>
+        a.id === id ? { ...a, disabled: !enable, disabledReason: enable ? undefined : reason } : a
+      );
+      const currentAccount = state.currentAccount
+        ? accounts.find(a => a.id === state.currentAccount!.id) ?? null
+        : null;
+      return { accounts, currentAccount };
+    });
+  },
+
+  // Quota data comes from the backend usage poller, which is not connected yet.
+  refreshQuota: async (id) => {
+    if (!get().accounts.some(a => a.id === id)) throw new Error(`Account ${id} not found`);
+  },
+
+  refreshAllQuotas: async () => {},
+
+  exportAccounts: async () => JSON.stringify(get().accounts, null, 2),
 }));

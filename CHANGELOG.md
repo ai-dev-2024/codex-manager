@@ -5,6 +5,18 @@ All notable changes to Codex Manager will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Fixed
+- `src/pages/About.tsx` had lost the closing `>` on most JSX tags and broke `tsc`.
+- Account store rewritten against the `OpenAIAccount` type the pages use (was out of sync, 50+ type errors).
+- Removed unused imports that failed `noUnusedLocals`.
+
+### Added
+- Vitest unit tests (`tests/`) for formatting helpers and the account store.
+- `typecheck` and `test` npm scripts; CI workflow now runs type-check, tests and build on ubuntu-latest.
+- MIT `LICENSE` file and `docs/banner.svg`.
+
 ## [0.3.0] - 2025-02-03
 
 ### Added
@@ -173,4 +185,4 @@ codex-manager/
 - Docker container
 - Prometheus metrics export
 
-[0.3.0]: https://github.com/ai-dev-2024/codex-manager/releases/tag/v0.3.0
+[0.3.0]: https://github.com/muhib-karim/codex-manager/releases/tag/v0.3.0

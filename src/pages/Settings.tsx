@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Save, Globe, Bell, Palette, Server, Shield } from 'lucide-react';
+import { Save, Globe, Bell, Palette, Server } from 'lucide-react';
 import { useConfigStore } from '../stores/useConfigStore';
 import { showToast } from '../components/common/ToastContainer';
 import { cn } from '../utils/cn';

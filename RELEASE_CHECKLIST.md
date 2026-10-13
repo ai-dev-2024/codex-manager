@@ -80,9 +80,9 @@ Codex Manager/
 
 ## 🔗 Links
 
-- **Repository**: https://github.com/ai-dev-2024/codex-manager
+- **Repository**: https://github.com/muhib-karim/codex-manager
 - **Support**: https://ko-fi.com/ai_dev_2024
-- **Releases**: https://github.com/ai-dev-2024/codex-manager/releases
+- **Releases**: https://github.com/muhib-karim/codex-manager/releases
 
 ---
 
@@ -107,7 +107,7 @@ git commit -m "Initial release v0.3.0 - Codex Manager"
 ### 3. Push to GitHub
 ```bash
 # Add remote (replace with your actual repo URL)
-git remote add origin https://github.com/ai-dev-2024/codex-manager.git
+git remote add origin https://github.com/muhib-karim/codex-manager.git
 
 # Push code
 git branch -M main
@@ -233,7 +233,7 @@ git push origin v0.3.1
 ## 🚀 Next Steps
 
 ### Immediate Actions Required:
-1. ✅ Review all code (completed by agents)
+1. ✅ Review all code
 2. ⏳ Convert SVG icons to PNG/ICO/ICNS
 3. ⏳ Create GitHub repo
 4. ⏳ Push code
@@ -280,8 +280,8 @@ npm run tauri build
 
 ## 📞 Support
 
-- **Issues**: https://github.com/ai-dev-2024/codex-manager/issues
-- **Discussions**: https://github.com/ai-dev-2024/codex-manager/discussions
+- **Issues**: https://github.com/muhib-karim/codex-manager/issues
+- **Discussions**: https://github.com/muhib-karim/codex-manager/discussions
 - **Ko-fi**: https://ko-fi.com/ai_dev_2024
 
 ---

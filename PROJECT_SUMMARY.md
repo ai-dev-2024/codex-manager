@@ -1,13 +1,13 @@
 # Codex Account Manager - Project Summary
 
-[![GitHub](https://img.shields.io/badge/GitHub-ai--dev--2024-181717?style=flat-square&logo=github)](https://github.com/ai-dev-2024/)
+[![GitHub](https://img.shields.io/badge/GitHub-ai--dev--2024-181717?style=flat-square&logo=github)](https://github.com/muhib-karim/)
 [![Support](https://img.shields.io/badge/Support-Ko--fi-FF5E5B?style=flat-square&logo=kofi)](https://ko-fi.com/ai_dev_2024)
 
 ## Project Overview
 
 **Codex Account Manager** is a local desktop tool for managing multiple OpenAI API accounts with intelligent routing, usage monitoring, and automatic failover. Built as an alternative to Antigravity Manager specifically for OpenAI/Codex APIs.
 
-**Repository:** [github.com/ai-dev-2024/codex-account-manager](https://github.com/ai-dev-2024/codex-account-manager)  
+**Repository:** [github.com/muhib-karim/codex-account-manager](https://github.com/muhib-karim/codex-account-manager)  
 **Support:** [ko-fi.com/ai_dev_2024](https://ko-fi.com/ai_dev_2024)
 
 ## Architecture Overview

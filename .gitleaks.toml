@@ -1,0 +1,7 @@
+# gitleaks config: default rules plus an allowlist for documented, non-secret values.
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Documented local default API keys used in curl examples (not secrets)"
+regexes = ['''sk-codex-manager''', '''sk-codex-account-manager''']

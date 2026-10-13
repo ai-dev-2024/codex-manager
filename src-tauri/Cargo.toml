@@ -2,7 +2,7 @@
 name = "codex_manager"
 version = "0.3.0"
 description = "Codex Manager - OpenAI API Account Management"
-authors = ["ai-dev-2024"]
+authors = ["Muhib Al Karim"]
 license = "MIT"
 edition = "2021"
 

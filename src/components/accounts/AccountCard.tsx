@@ -5,12 +5,9 @@ import {
     Download, 
     Info, 
     Ban, 
-    Lock,
     Clock,
     ToggleLeft,
-    ToggleRight,
-    Zap,
-    Layers
+    ToggleRight
 } from 'lucide-react';
 import { OpenAIAccount } from '../../types/account';
 import { getQuotaColorClass, formatTimeRemaining, formatNumber, maskApiKey } from '../../utils/format';

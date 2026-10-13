@@ -4,11 +4,9 @@ import {
     Zap, 
     Activity, 
     AlertTriangle,
-    ArrowRight,
     RefreshCw
 } from 'lucide-react';
 import { useAccountStore } from '../../stores/useAccountStore';
-import { useConfigStore } from '../../stores/useConfigStore';
 import { showToast } from '../common/ToastContainer';
 import { formatNumber } from '../../utils/format';
 import { cn } from '../../utils/cn';
@@ -51,7 +49,6 @@ function StatCard({ title, value, subtitle, icon, color }: StatCardProps) {
 
 export default function StatsOverview() {
     const { accounts, currentAccount, refreshAllQuotas, loading } = useAccountStore();
-    const { config } = useConfigStore();
 
     const stats = useMemo(() => {
         const total = accounts.length;

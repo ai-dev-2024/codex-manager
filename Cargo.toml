@@ -2,9 +2,9 @@
 name = "codex-manager"
 version = "0.3.0"
 edition = "2021"
-authors = ["ai-dev-2024 <62206502+ai-dev-2024@users.noreply.github.com>"]
+authors = ["Muhib Al Karim"]
 description = "Professional OpenAI account management and switching tool"
-repository = "https://github.com/ai-dev-2024/codex-manager"
+repository = "https://github.com/muhib-karim/codex-manager"
 license = "MIT"
 keywords = ["openai", "api", "proxy", "account-manager", "codex"]
 categories = ["command-line-utilities", "network-programming"]

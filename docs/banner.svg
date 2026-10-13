@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="320" viewBox="0 0 1280 320" role="img" aria-label="Codex Manager - route OpenAI API traffic across multiple accounts">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1020"/>
+      <stop offset="0.55" stop-color="#121a33"/>
+      <stop offset="1" stop-color="#1b1442"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#38bdf8"/>
+      <stop offset="1" stop-color="#818cf8"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#6366f1" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#6366f1" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1280" height="320" fill="url(#bg)"/>
+  <g stroke="#ffffff" stroke-opacity="0.04" stroke-width="1">
+    <path d="M0 80H1280M0 160H1280M0 240H1280"/>
+    <path d="M160 0V320M320 0V320M480 0V320M640 0V320M800 0V320M960 0V320M1120 0V320"/>
+  </g>
+
+  <!-- routing motif: clients -> proxy hub -> accounts -->
+  <g transform="translate(735 0)">
+    <circle cx="230" cy="160" r="120" fill="url(#glow)"/>
+    <g fill="none" stroke-width="2.5" stroke-linecap="round">
+      <path d="M40 100 C120 100 150 160 230 160" stroke="#38bdf8" stroke-opacity="0.55"/>
+      <path d="M40 160 H230" stroke="#38bdf8" stroke-opacity="0.55"/>
+      <path d="M40 220 C120 220 150 160 230 160" stroke="#38bdf8" stroke-opacity="0.55"/>
+      <path d="M230 160 C310 160 330 70 420 70" stroke="#818cf8" stroke-opacity="0.5"/>
+      <path d="M230 160 C310 160 330 130 420 130" stroke="url(#accent)" stroke-width="4"/>
+      <path d="M230 160 C310 160 330 190 420 190" stroke="#818cf8" stroke-opacity="0.5"/>
+      <path d="M230 160 C310 160 330 250 420 250" stroke="#818cf8" stroke-opacity="0.35" stroke-dasharray="6 8"/>
+    </g>
+    <g fill="#0f172a" stroke="#38bdf8" stroke-width="2">
+      <circle cx="40" cy="100" r="9"/>
+      <circle cx="40" cy="160" r="9"/>
+      <circle cx="40" cy="220" r="9"/>
+    </g>
+    <rect x="196" y="126" width="68" height="68" rx="16" fill="#111827" stroke="url(#accent)" stroke-width="3"/>
+    <path d="M216 148h28M216 160h28M216 172h18" stroke="#c7d2fe" stroke-width="3" stroke-linecap="round"/>
+    <g font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" fill="#cbd5e1">
+      <rect x="420" y="56" width="74" height="28" rx="8" fill="#1e293b" stroke="#818cf8" stroke-opacity="0.6"/>
+      <text x="457" y="75" text-anchor="middle">acct 1</text>
+      <rect x="420" y="116" width="74" height="28" rx="8" fill="#1e1b4b" stroke="#a5b4fc" stroke-width="2"/>
+      <text x="457" y="135" text-anchor="middle" fill="#ffffff">acct 2</text>
+      <rect x="420" y="176" width="74" height="28" rx="8" fill="#1e293b" stroke="#818cf8" stroke-opacity="0.6"/>
+      <text x="457" y="195" text-anchor="middle">acct 3</text>
+      <rect x="420" y="236" width="74" height="28" rx="8" fill="#1e293b" stroke="#64748b" stroke-opacity="0.6"/>
+      <text x="457" y="255" text-anchor="middle" fill="#64748b">disabled</text>
+    </g>
+  </g>
+
+  <g font-family="Segoe UI, Helvetica, Arial, sans-serif">
+    <text x="80" y="140" font-size="64" font-weight="700" fill="#f8fafc">Codex Manager</text>
+    <rect x="82" y="162" width="96" height="5" rx="2.5" fill="url(#accent)"/>
+    <text x="80" y="210" font-size="24" fill="#cbd5e1">Multi-account OpenAI API manager with smart routing</text>
+    <text x="80" y="252" font-size="17" fill="#94a3b8">Tauri v2 · Rust · React · TypeScript</text>
+  </g>
+</svg>

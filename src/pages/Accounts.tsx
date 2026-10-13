@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import { Search, RefreshCw, Download, Trash2, LayoutGrid, List, ToggleLeft, ToggleRight, Eye, EyeOff } from 'lucide-react';
-import { useAccountStore } from '../stores/useAccountStore';
+import { useAccountStore, type NewAccount } from '../stores/useAccountStore';
 import AccountCard from '../components/accounts/AccountCard';
 import AccountDetailsDialog from '../components/accounts/AccountDetailsDialog';
 import AddAccountDialog from '../components/accounts/AddAccountDialog';
@@ -110,7 +110,7 @@ export default function Accounts() {
         setSelectedIds(newSet);
     };
 
-    const handleAddAccount = async (account) => {
+    const handleAddAccount = async (account: NewAccount) => {
         await addAccount(account);
     };
 

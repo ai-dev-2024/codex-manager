@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Users, Zap, Activity, AlertTriangle, ArrowRight, Download, RefreshCw, Eye, EyeOff } from 'lucide-react';
-import { useAccountStore } from '../stores/useAccountStore';
+import { useAccountStore, type NewAccount } from '../stores/useAccountStore';
 import { useConfigStore } from '../stores/useConfigStore';
 import StatsOverview from '../components/dashboard/StatsOverview';
 import BestAccountCard from '../components/dashboard/BestAccountCard';
@@ -86,7 +86,7 @@ export default function Dashboard() {
         }
     };
 
-    const handleAddAccount = async (account) => {
+    const handleAddAccount = async (account: NewAccount) => {
         await addAccount(account);
         await fetchAccounts();
     };

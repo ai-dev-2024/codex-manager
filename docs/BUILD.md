@@ -47,7 +47,7 @@ winget install Microsoft.VisualStudio.2022.BuildTools
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/ai-dev-2024/codex-manager.git
+git clone https://github.com/muhib-karim/codex-manager.git
 cd codex-manager
 ```
 

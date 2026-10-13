@@ -8,7 +8,7 @@ import About from './pages/About';
 import { useConfigStore } from './stores/useConfigStore';
 
 function App() {
-    const { config, loadConfig, updateTheme } = useConfigStore();
+    const { config, loadConfig } = useConfigStore();
 
     useEffect(() => {
         loadConfig();
